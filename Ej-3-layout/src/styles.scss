@@ -1,0 +1,49 @@
+$colorBg: cadetblue;
+$colorHover: rgb(10, 83, 83);
+$colorText: white;
+
+body{
+    margin: 0;
+    padding: 0;
+
+}
+.container {
+    margin: 2px 4px 0px;
+
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color: $colorBg;
+    justify-content: space-between;
+    color: $colorText;
+    
+    div {
+        width: 1f;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 15px;
+        
+       &:hover{
+            background-color: $colorHover !important;
+            color: $colorText;
+        }
+            
+
+    }
+
+}
+
+/***Resolución de pantalla**/
+
+@media (max-width: 576px) {
+    .container {
+        margin: 4px 20px 0px;
+    
+    }
+    nav{
+        flex-direction: column;
+    }
+  }
