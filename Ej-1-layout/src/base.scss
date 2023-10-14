@@ -1,0 +1,81 @@
+$color-base-1:red;
+$color-base-2: blue;
+$color-base-3: green;
+$colors-bg: $color-base-1, $color-base-2, $color-base-3;
+
+// Obtener colores oscuros y claros
+@function darkenColor-or-lightenColor($color,$isDarken, $amount){
+    @if $isDarken {
+        @return darken($color, $amount * 7%);
+    } @else{
+        @return lighten($color, $amount * 9%);
+    }
+}
+// Recorrer array de colores y obtener el color
+@function getcolor($i, $color-list) {
+
+
+    @if($i <= length($color-list)){
+        @each $color in $color-list {
+            $index: index($color-list, $color);
+            @if($index == $i){
+                 @return $color;
+                }
+        
+        }
+    }@else{
+        @return white;
+    }
+}
+@mixin paddingBox($size){
+    padding-left: $size;
+    padding-right: $size;
+
+}
+
+@mixin bgColor($lengthContainer, $lenghtBox, $colorsBg) {
+    @for $i from 1 to $lengthContainer + 1 {
+        $colorBase : getcolor($i, $colorsBg);
+        .container-#{$i}{
+            .box {
+                background-color: $colorBase;
+
+            }
+            @include gradualColors($lenghtBox, $colorBase);
+
+        }
+
+
+    }
+
+}
+
+@mixin gradualColors($lengthBox,$color){
+    $x: 1;
+    @while $x <= $lengthBox{
+     .darken-#{$x}{
+         background-color : darkenColor-or-lightenColor($color, true, $x);
+         @include invertTextColor($color);
+
+     }
+     .lighten-#{$x}{
+         background-color: darkenColor-or-lightenColor($color, false, $x);
+         @include invertTextColor($color);
+     }
+     $x: $x + 1;
+    }
+
+}
+
+ @function invertColorBase($colorBase) {
+    @return invert($colorBase);
+}
+
+
+@mixin invertTextColor($color){
+    @include paddingBox(4px);
+   .color-box-text{
+        color: invertColorBase($color);
+    }
+
+}

@@ -1,0 +1,32 @@
+@use "base" as b;
+body{
+    @include b.bgColor(3, 4, b.$colors-bg);
+    
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 3px;
+
+}
+
+.container-1, .container-2, .container-3{
+    @extend .container;
+}
+
+.box{
+    border-radius : 5px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color:white;
+
+
+}
+.base-color{
+    @include b.paddingBox(8px);
+}
+
+
+
