@@ -1,0 +1,46 @@
+@mixin bgColor( $colorBase, $colorImportant, $colorWarning) {
+    .color-base{
+        background-color: $colorBase;
+    }
+
+    .color-important{
+        background-color: $colorImportant;
+    }
+    .color-warning{
+        background-color: $colorWarning;
+    }
+
+}
+
+@mixin fontFamily($primary,$secondary){
+    .text-primary {
+        font-family: $primary;
+
+    }
+    .text-secondary{
+        font-family: $secondary;
+    }
+
+}
+
+@mixin border($isBorderRadious,$isShadowRight){
+
+        .container div:not(:nth-child(4)) {
+            @if $isBorderRadious{
+                border-radius: 5px;
+            }
+          }
+
+          .container div:last-child {
+            @if $isShadowRight{
+                box-shadow: 15px 10px 10px 0px rgba(0,0,0,0.75);
+            }@else{
+     
+                box-shadow: -8px 15px 10px 0px rgba(0,0,0,0.75);
+            }
+     
+          }
+
+
+}
+

@@ -1,0 +1,12 @@
+@use 'base' as b;
+$color-base:blue;
+$color-important: darkBlue;
+$color-warning: aqua;
+$text-primary:  sans-serif;
+$text-secondary: serif;
+$borderRadious: true;
+$shadowRight: true;
+
+@include b.bgColor($color-base,$color-important, $color-warning);
+@include b.border($borderRadious, $shadowRight);
+@include b.fontFamily($text-primary, $text-secondary);

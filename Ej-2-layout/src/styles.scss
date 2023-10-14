@@ -1,0 +1,32 @@
+
+@import "theme1";
+.container {
+  margin-left: 20px;
+        div {
+            width: 100px;
+            height: 80px;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-top: 10px;
+            border: 1px solid black;
+        }
+        div:nth-child(4) {
+            border: none !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+            width: auto;
+     
+          }
+        div:not(:nth-child(4)) {
+            font-weight: 700;
+        }
+
+        .box-shadow{
+            display: flex;
+            align-items: center;
+        }
+
+}

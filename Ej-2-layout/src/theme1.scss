@@ -1,0 +1,12 @@
+@use 'base' as b;
+$color-base:red;
+$color-important: brown;
+$color-warning: pink;
+$text-primary:  serif;
+$text-secondary: "sans-serif";
+$borderRadious: false;
+$shadowRight: false;
+
+@include b.bgColor($color-base,$color-important,$color-warning);
+@include b.border($borderRadious, $shadowRight);
+@include b.fontFamily($text-primary, $text-secondary);
